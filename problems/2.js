@@ -47,8 +47,9 @@ module.exports.solution = function evenFibonacciNumbers(){
 //
 //    current = fibonacci(i);
 //    while(current < 4000000) {
-//        if(current % 2 === 0)
+//        if(current % 2 === 0) {
 //            total += current;
+//        }
 //
 //        current = fibonacci(++i);
 //    }
