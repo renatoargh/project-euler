@@ -1,0 +1,19 @@
+{
+  "name": "renatoargh-project-euler",
+  "version": "0.0.0",
+  "description": "My solutions to project euler's problems",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/renatoargh/project-euler.git"
+  },
+  "keywords": [
+    "project-euler",
+    "solutions"
+  ],
+  "author": "Renato Gama <renatoargh@gmail.com>",
+  "license": "MIT"
+}
