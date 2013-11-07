@@ -35,6 +35,22 @@ function isPrime(number) {
 };
 module.exports.isPrime = isPrime;
 
+function isCircular(prime) {
+    var combinations = [];
+
+    prime = prime.toString();
+
+    prime.split('').reduce(function(last) {
+        combinations.push(last);
+        return last.substr(1) + last[0];
+    }, prime);
+
+    return combinations.every(function(number) {
+        return isPrime(parseInt(number, 10));
+    });
+}
+module.exports.isCircular = isCircular;
+
 module.exports.largestPrimeBelow = function(number) {
     for(var i = number - 1; i > 0; i--) {
         if(isPrime(i)) {
