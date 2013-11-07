@@ -28,6 +28,16 @@ module.exports.isPrime = function(number) {
 };
 
 module.exports.getFirst = function(max){
+    //  +--------------------+
+    //  |    RUNNING TIMES   |
+    //  +---------+----------+
+    //  | 1000    | 5ms      |
+    //  | 10000   | 24ms     |
+    //  | 100000  | 426ms    |
+    //  | 1000000 | 9753ms   |
+    //  | 6000000 | 121315ms |
+    //  +---------+----------+
+
     return module.exports.getPrimesBetween(0, max);
 };
 
