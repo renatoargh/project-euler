@@ -27,18 +27,14 @@ module.exports.isPrime = function(number) {
     return module.exports.getPrimeFactors(number).length === 1;
 };
 
-module.exports.getFirst = function(max){
-    //  +--------------------+
-    //  |    RUNNING TIMES   |
-    //  +---------+----------+
-    //  | 1000    | 5ms      |
-    //  | 10000   | 24ms     |
-    //  | 100000  | 426ms    |
-    //  | 1000000 | 9753ms   |
-    //  | 6000000 | 121315ms |
-    //  +---------+----------+
+module.exports.largestPrimeBelow = function(number) {
+    for(var i = number - 1; i > 0; i--) {
+        if(module.exports.isPrime(i)) {
+            return i;
+        }
+    }
 
-    return module.exports.getPrimesBetween(0, max);
+    return undefined;
 };
 
 module.exports.getPrimesBetween = function(min, max) {
@@ -54,12 +50,16 @@ module.exports.getPrimesBetween = function(min, max) {
     return primes;
 };
 
-module.exports.largestPrimeBelow = function(number) {
-    for(var i = number - 1; i > 0; i--) {
-        if(module.exports.isPrime(i)) {
-            return i;
-        }
-    }
+module.exports.getFirst = function(max){
+    //  +--------------------+
+    //  |    RUNNING TIMES   |
+    //  +---------+----------+
+    //  | 1000    | 5ms      |
+    //  | 10000   | 24ms     |
+    //  | 100000  | 426ms    |
+    //  | 1000000 | 9753ms   |
+    //  | 6000000 | 121315ms |
+    //  +---------+----------+
 
-    return undefined;
+    return module.exports.getPrimesBetween(0, max);
 };
