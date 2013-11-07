@@ -8,51 +8,32 @@ module.exports.description =
     'By considering the terms in the Fibonacci sequence whose values ' +
     'do not exceed four million, find the sum of the even-valued terms.';
 
-module.exports.solution = function evenFibonacciNumbers(){
-    var total = 0,
-        last = 0,
-        current = 1,
-        fibonacci = last + current;
+module.exports.solution = function evenFibonacciNumbers() {
+    var fibonacciTable = {}, i = 0, current, total = 0;
 
-    while(fibonacci < 4000000) {
-        if(fibonacci % 2 === 0) {
-            total += fibonacci;
+    function fibonacci(n) {
+        var value;
+
+        if(fibonacciTable[n]) {
+            return fibonacciTable[n];
+        } else if (n < 2) {
+            value = n;
+        } else {
+            value = fibonacci(n - 1) + fibonacci(n - 2);
         }
 
-        last = current;
-        current = fibonacci;
-        fibonacci = last + current;
+        fibonacciTable[n] = value;
+        return value;
+    }
+
+    current = fibonacci(i);
+    while(current < 4000000) {
+        if(current % 2 === 0) {
+            total += current;
+        }
+
+        current = fibonacci(++i);
     }
 
     return total;
 };
-
-//module.exports.solution = function evenFibonacciNumbers() {
-//    var fibonacciTable = {}, i = 0, current, total = 0;
-//
-//    function fibonacci(n) {
-//        var value;
-//
-//        if(fibonacciTable[n]) {
-//            return fibonacciTable[n];
-//        } else if (n < 2) {
-//            value = n;
-//        } else {
-//            value = fibonacci(n - 1) + fibonacci(n - 2);
-//        }
-//
-//        fibonacciTable[n] = value;
-//        return value;
-//    }
-//
-//    current = fibonacci(i);
-//    while(current < 4000000) {
-//        if(current % 2 === 0) {
-//            total += current;
-//        }
-//
-//        current = fibonacci(++i);
-//    }
-//
-//    return total;
-//};
