@@ -10,4 +10,8 @@ module.exports.register = function(){
             return a > b ? a : b;
         }, Number.MIN_VALUE);
     };
+
+    Array.prototype.last = function(){
+        return this[this.length - 1];
+    };
 };
