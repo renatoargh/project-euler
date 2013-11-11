@@ -24,6 +24,21 @@ function getPrimeFactors(number) {
 };
 module.exports.getPrimeFactors = getPrimeFactors;
 
+function getPowers(factors){
+    var result = {};
+
+    factors.forEach(function(factor){
+       if(factor in result) {
+           result[factor]++;
+       } else {
+           result[factor] = 1;
+       }
+    });
+
+    return result;
+}
+module.exports.getPowers = getPowers;
+
 function isPrime(number) {
     if(number === 2) {
         return true;
@@ -34,6 +49,21 @@ function isPrime(number) {
     return getPrimeFactors(number).length === 1;
 };
 module.exports.isPrime = isPrime;
+
+function nextPrime(number) {
+    if(number === 2) {
+        return 3;
+    } else {
+        number += number % 2 === 0 ? 1 : 2;
+
+        while(!isPrime(number)) {
+            number += 2;
+        }
+
+        return number;
+    }
+}
+module.exports.nextPrime = nextPrime;
 
 function isCircular(prime) {
     var combinations = [];
